@@ -9,7 +9,7 @@ interface Apiinterface {
     @GET("weather")
     fun getWeatherData(
         @Query("q") city:String,
-        @Query("app_id") app_id:String,
+        @Query("appid") appid:String,
         @Query("units") units:String
     ): Call<WeatherApp>
 }

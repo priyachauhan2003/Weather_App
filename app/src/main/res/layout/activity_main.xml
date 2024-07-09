@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="Today"
         android:textColor="@color/black"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/maxtemp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -127,16 +127,16 @@
         app:layout_constraintTop_toBottomOf="@+id/maxtemp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/date"
         android:layout_width="95dp"
         android:layout_height="17dp"
         android:layout_marginTop="16dp"
         android:text="04 July 2024"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintEnd_toEndOf="@+id/day"
+        app:layout_constraintStart_toStartOf="@+id/day"
+        app:layout_constraintTop_toBottomOf="@+id/day" />
 
     <FrameLayout
         android:id="@+id/frameLayout2"
@@ -148,7 +148,7 @@
         android:background="@drawable/backgroundshape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
+        app:layout_constraintTop_toBottomOf="@+id/date">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -370,7 +370,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DESIGN BY\n Priya Chauhan"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
