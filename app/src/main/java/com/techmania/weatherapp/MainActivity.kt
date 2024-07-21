@@ -1,9 +1,11 @@
 package com.techmania.weatherapp
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
                     fetchWeatherData(query)
+                    hideKeyboard()
                 }
                 return true
             }
@@ -46,6 +49,14 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+    }
+
+    private fun hideKeyboard() {
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val currentFocus = currentFocus
+        if (currentFocus != null) {
+            inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+        }
     }
 
     private fun fetchWeatherData(cityName:String) {
@@ -106,15 +117,15 @@ class MainActivity : AppCompatActivity() {
                 binding.root.setBackgroundResource(R.drawable.clearbg)
                 binding.lottieAnimationView10.setAnimation(R.raw.sunny)
             }
-            "Light Rain" , "Drizzel" , "Moderate Rain" , "Heavy Rain"->{
+            "Light Rain" , "Drizzle" , "Moderate Rain" , "Heavy Rain", "Rain"->{
                 binding.root.setBackgroundResource(R.drawable.rainbg)
                 binding.lottieAnimationView10.setAnimation(R.raw.rainy)
             }
-            "Partly Clouds" , "Overcast Clouds" , "Foggy","Clouds"->{
+            "Partly Clouds" , "Overcast Clouds","Clouds","Cloudy"->{
                 binding.root.setBackgroundResource(R.drawable.cloudybg)
                 binding.lottieAnimationView10.setAnimation(R.raw.cloudy)
             }
-            "Mist" , "Smoke" , "Dust" ->{
+            "Mist" , "Smoke" , "Dust" ,"Fog" , "Sand" , "Dust" , "Foggy"->{
                 binding.root.setBackgroundResource(R.drawable.mistbg)
                 binding.lottieAnimationView10.setAnimation(R.raw.mist)
             }
